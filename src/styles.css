@@ -74,7 +74,8 @@ p {
   display: flex;
   height: 100%;
   transform: translateX(calc(var(--active-slide, 0) * -100%));
-  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .slide {
@@ -87,6 +88,23 @@ p {
   height: 100%;
   overflow: hidden;
   padding: clamp(44px, 6vw, 78px);
+}
+
+.slide > * {
+  opacity: 0.35;
+  transform: translateX(24px) scale(0.985);
+  transition:
+    opacity 520ms ease,
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deck-shell[data-direction="back"] .slide > * {
+  transform: translateX(-24px) scale(0.985);
+}
+
+.slide.is-active > * {
+  opacity: 1;
+  transform: translateX(0) scale(1);
 }
 
 .cover-slide {
@@ -159,11 +177,58 @@ p {
 }
 
 .agenda-slide,
+.founders-slide,
 .statement-slide,
 .metric-slide,
 .closing-slide {
   justify-content: center;
   gap: 28px;
+}
+
+.founders-slide {
+  align-items: center;
+  gap: clamp(64px, 10vh, 104px);
+  text-align: center;
+}
+
+.founders-slide h2 {
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.founder-grid {
+  display: grid;
+  width: min(84vw, 920px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(44px, 8vw, 120px);
+  align-items: start;
+}
+
+.founder-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.founder-card img {
+  width: clamp(132px, 13vw, 166px);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.founder-card h3 {
+  margin-top: 2px;
+  color: #243044;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.founder-card p {
+  color: #243044;
+  font-size: 0.72rem;
+  line-height: 1.25;
 }
 
 .split-slide,
@@ -329,8 +394,30 @@ h3 {
   }
 
   .agenda-list,
+  .founder-grid,
   .point-grid {
     grid-template-columns: 1fr;
+  }
+
+  .founders-slide {
+    gap: 28px;
+  }
+
+  .founder-grid {
+    width: min(100%, 360px);
+    gap: 18px;
+  }
+
+  .founder-card {
+    grid-template-columns: 74px 1fr;
+    justify-items: start;
+    gap: 4px 14px;
+    text-align: left;
+  }
+
+  .founder-card img {
+    grid-row: span 3;
+    width: 74px;
   }
 
   h2 {

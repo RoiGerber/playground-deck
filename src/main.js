@@ -13,10 +13,16 @@ let activeIndex = 0;
 totalSlides.textContent = slides.length;
 
 const showSlide = (index) => {
+  const previousIndex = activeIndex;
   activeIndex = Math.min(Math.max(index, 0), slides.length - 1);
 
   deck.style.setProperty("--active-slide", activeIndex);
+  deck.dataset.direction = activeIndex >= previousIndex ? "forward" : "back";
   currentSlide.textContent = activeIndex + 1;
+
+  slides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("is-active", slideIndex === activeIndex);
+  });
 
   marks.forEach((mark, markIndex) => {
     mark.classList.toggle("is-active", markIndex === activeIndex);
