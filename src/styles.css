@@ -555,6 +555,73 @@ p {
   text-align: center;
 }
 
+.vision-slide {
+  align-items: center;
+  justify-content: center;
+  gap: clamp(34px, 6vh, 58px);
+  padding: clamp(42px, 6vw, 72px);
+  background: #f7f5f1;
+}
+
+.vision-wedge {
+  position: absolute;
+  inset: 0 auto 0 13%;
+  width: 32%;
+  background: rgba(241, 232, 224, 0.66);
+  clip-path: polygon(0 0, 28% 0, 100% 100%, 72% 100%);
+  pointer-events: none;
+}
+
+.vision-slide h2 {
+  position: relative;
+  z-index: 1;
+  color: #263244;
+  font-size: clamp(1.55rem, 2.45vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.vision-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 1030px);
+  grid-template-columns: minmax(280px, 0.85fr) minmax(460px, 1.45fr);
+  gap: clamp(50px, 9vw, 118px);
+  align-items: center;
+}
+
+.vision-proof {
+  position: relative;
+  display: grid;
+  gap: 36px;
+  align-self: end;
+  margin: 0;
+}
+
+.vision-proof figcaption {
+  max-width: 250px;
+  color: #000000;
+  font-size: clamp(0.86rem, 1.15vw, 1rem);
+  line-height: 1.18;
+}
+
+.vision-proof img {
+  width: min(100%, 278px);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  box-shadow: 0 18px 38px rgba(24, 20, 16, 0.12);
+}
+
+.vision-copy {
+  display: grid;
+  gap: clamp(34px, 6vh, 52px);
+  color: #142033;
+  font-size: clamp(1.25rem, 2.1vw, 1.55rem);
+  line-height: 1.16;
+}
+
 .eyebrow {
   margin-bottom: 14px;
 }
@@ -715,8 +782,32 @@ h3 {
   .founder-grid,
   .problem-row,
   .solution-layout,
+  .vision-layout,
   .point-grid {
     grid-template-columns: 1fr;
+  }
+
+  .vision-slide {
+    justify-content: start;
+    gap: 24px;
+    overflow-y: auto;
+  }
+
+  .vision-wedge {
+    display: none;
+  }
+
+  .vision-layout {
+    gap: 28px;
+  }
+
+  .vision-copy {
+    gap: 22px;
+    font-size: 1.1rem;
+  }
+
+  .vision-proof {
+    gap: 20px;
   }
 
   .solution-slide {
