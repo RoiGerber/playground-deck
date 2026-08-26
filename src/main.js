@@ -7,6 +7,7 @@ const currentSlide = document.querySelector("#current-slide");
 const totalSlides = document.querySelector("#total-slides");
 const prevButton = document.querySelector("#prev-slide");
 const nextButton = document.querySelector("#next-slide");
+const phone = document.querySelector(".phone");
 
 let activeIndex = 0;
 
@@ -43,6 +44,24 @@ marks.forEach((mark, index) => {
 
 prevButton.addEventListener("click", () => moveSlide(-1));
 nextButton.addEventListener("click", () => moveSlide(1));
+
+if (phone) {
+  phone.addEventListener("pointermove", (event) => {
+    const rect = phone.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    phone.style.setProperty("--tilt-x", `${-y * 18}deg`);
+    phone.style.setProperty("--tilt-y", `${x * 22}deg`);
+    phone.style.setProperty("--tilt-z", `${x * -3}deg`);
+  });
+
+  phone.addEventListener("pointerleave", () => {
+    phone.style.removeProperty("--tilt-x");
+    phone.style.removeProperty("--tilt-y");
+    phone.style.removeProperty("--tilt-z");
+  });
+}
 
 window.addEventListener("keydown", (event) => {
   if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(event.key)) {
