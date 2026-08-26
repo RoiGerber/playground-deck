@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="deck-shell" aria-label="Playground presentation deck">
+      <div class="deck-counter">
+        <span id="current-slide">1</span>/<span id="total-slides">10</span>
+      </div>
+
+      <div class="deck-stage">
+        <div class="slide-track">
+          <section class="slide cover-slide" aria-label="Slide 1">
+            <span class="angle-line angle-line-start" aria-hidden="true"></span>
+            <span class="angle-line angle-line-end" aria-hidden="true"></span>
+            <img
+              class="app-icon"
+              src="/src/assets/playground-icon.png"
+              alt="Playground app icon"
+            />
+            <div class="cover-copy">
+              <h1>Playground</h1>
+              <p>swipe &amp; play</p>
+              <p>Endless feed. Instant games.</p>
+            </div>
+            <p class="deck-meta">Seed Round · 2026</p>
+          </section>
+
+          <section class="slide agenda-slide" aria-label="Slide 2">
+            <p class="eyebrow">Overview</p>
+            <h2>Ten focused slides for a fast, modern story.</h2>
+            <div class="agenda-list">
+              <span>Market</span>
+              <span>Product</span>
+              <span>Growth</span>
+              <span>Ask</span>
+            </div>
+          </section>
+
+          <section class="slide split-slide" aria-label="Slide 3">
+            <div>
+              <p class="eyebrow">Problem</p>
+              <h2>Replace this with the tension your product solves.</h2>
+            </div>
+            <p class="slide-note">
+              Add one clear paragraph here. Keep it short enough to read while
+              you speak.
+            </p>
+          </section>
+
+          <section class="slide statement-slide" aria-label="Slide 4">
+            <p class="eyebrow">Insight</p>
+            <h2>Put the memorable idea in this position.</h2>
+            <p class="slide-note">This slide works best with one strong claim.</p>
+          </section>
+
+          <section class="slide cards-slide" aria-label="Slide 5">
+            <div>
+              <p class="eyebrow">Product</p>
+              <h2>Three reasons the experience stands out.</h2>
+            </div>
+            <div class="point-grid">
+              <article class="point-card">
+                <span>01</span>
+                <h3>Simple</h3>
+                <p>Short statement for the first product pillar.</p>
+              </article>
+              <article class="point-card">
+                <span>02</span>
+                <h3>Fast</h3>
+                <p>Short statement for the second product pillar.</p>
+              </article>
+              <article class="point-card">
+                <span>03</span>
+                <h3>Social</h3>
+                <p>Short statement for the third product pillar.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="slide metric-slide" aria-label="Slide 6">
+            <p class="eyebrow">Traction</p>
+            <h2>Use this slide for one hero metric.</h2>
+            <p class="big-number">42%</p>
+          </section>
+
+          <section class="slide split-slide" aria-label="Slide 7">
+            <div>
+              <p class="eyebrow">Market</p>
+              <h2>A clean layout for market size or audience detail.</h2>
+            </div>
+            <p class="slide-note">
+              Add a compact explanation, a single stat, or a quote.
+            </p>
+          </section>
+
+          <section class="slide cards-slide" aria-label="Slide 8">
+            <div>
+              <p class="eyebrow">Model</p>
+              <h2>Break the business logic into clear blocks.</h2>
+            </div>
+            <div class="point-grid">
+              <article class="point-card">
+                <span>A</span>
+                <h3>Acquire</h3>
+                <p>Placeholder for your acquisition engine.</p>
+              </article>
+              <article class="point-card">
+                <span>B</span>
+                <h3>Retain</h3>
+                <p>Placeholder for your retention loop.</p>
+              </article>
+              <article class="point-card">
+                <span>C</span>
+                <h3>Monetize</h3>
+                <p>Placeholder for your revenue model.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="slide statement-slide" aria-label="Slide 9">
+            <p class="eyebrow">Ask</p>
+            <h2>Use this moment to state the raise, milestone, or decision.</h2>
+            <p class="slide-note">Keep the ask precise and easy to repeat.</p>
+          </section>
+
+          <section class="slide closing-slide" aria-label="Slide 10">
+            <img
+              class="closing-icon"
+              src="/src/assets/playground-icon.png"
+              alt="Playground app icon"
+            />
+            <h2>Playground</h2>
+            <p>Endless feed. Instant games.</p>
+          </section>
+        </div>
+      </div>
+
+      <nav class="deck-controls" aria-label="Slide controls">
+        <button class="nav-button" type="button" id="prev-slide" aria-label="Previous slide">
+          <span aria-hidden="true">←</span>
+        </button>
+        <div class="deck-dots" aria-label="Deck progress">
+          <button class="mark is-active" type="button" aria-label="Slide 1"></button>
+          <button class="mark" type="button" aria-label="Slide 2"></button>
+          <button class="mark" type="button" aria-label="Slide 3"></button>
+          <button class="mark" type="button" aria-label="Slide 4"></button>
+          <button class="mark" type="button" aria-label="Slide 5"></button>
+          <button class="mark" type="button" aria-label="Slide 6"></button>
+          <button class="mark" type="button" aria-label="Slide 7"></button>
+          <button class="mark" type="button" aria-label="Slide 8"></button>
+          <button class="mark" type="button" aria-label="Slide 9"></button>
+          <button class="mark" type="button" aria-label="Slide 10"></button>
+        </div>
+        <button class="nav-button" type="button" id="next-slide" aria-label="Next slide">
+          <span aria-hidden="true">→</span>
+        </button>
+      </nav>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
