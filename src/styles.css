@@ -1370,6 +1370,17 @@ p {
   aspect-ratio: 1;
   place-items: center;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 24px 58px rgba(24, 20, 16, 0.13);
+  opacity: 0;
+  transform: scale(0.92) rotate(-16deg);
+}
+
+.funds-pie::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
   background:
     conic-gradient(
       #2f80ed 0deg 252deg,
@@ -1380,9 +1391,8 @@ p {
       #f97316 348deg 355.2deg,
       #6b7280 355.2deg 360deg
     );
-  box-shadow: 0 24px 58px rgba(24, 20, 16, 0.13);
   opacity: 0;
-  transform: scale(0.92) rotate(-12deg);
+  transform: scale(0.72) rotate(-42deg);
 }
 
 .funds-pie::before {
@@ -1392,6 +1402,7 @@ p {
   border-radius: inherit;
   background: #f7f5f1;
   box-shadow: inset 0 0 0 1px rgba(38, 50, 68, 0.08);
+  z-index: 1;
 }
 
 .funds-pie span,
@@ -1418,10 +1429,31 @@ p {
 }
 
 .slide.is-active .funds-pie {
-  animation: pieIn 780ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: pieIn 980ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide.is-active .funds-pie::after {
+  animation: pieColorIn 880ms cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
 }
 
 @keyframes pieIn {
+  55% {
+    opacity: 1;
+    transform: scale(1.035) rotate(2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pieColorIn {
+  60% {
+    opacity: 1;
+    transform: scale(1.03) rotate(4deg);
+  }
+
   to {
     opacity: 1;
     transform: scale(1) rotate(0deg);
@@ -1431,6 +1463,27 @@ p {
 .funds-legend {
   display: grid;
   gap: 10px;
+}
+
+.funds-total {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: -18px;
+  color: #263244;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.funds-total strong {
+  color: #141b28;
+  font-size: 1.22em;
+  font-weight: 800;
+}
+
+.slide.is-active .funds-total {
+  animation: tableRowIn 560ms cubic-bezier(0.16, 1, 0.3, 1) 780ms forwards;
 }
 
 .fund-item {
@@ -1452,12 +1505,13 @@ p {
   animation: tableRowIn 540ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.slide.is-active .fund-item:nth-child(2) { animation-delay: 70ms; }
-.slide.is-active .fund-item:nth-child(3) { animation-delay: 140ms; }
-.slide.is-active .fund-item:nth-child(4) { animation-delay: 210ms; }
-.slide.is-active .fund-item:nth-child(5) { animation-delay: 280ms; }
-.slide.is-active .fund-item:nth-child(6) { animation-delay: 350ms; }
-.slide.is-active .fund-item:nth-child(7) { animation-delay: 420ms; }
+.slide.is-active .fund-item:nth-child(1) { animation-delay: 260ms; }
+.slide.is-active .fund-item:nth-child(2) { animation-delay: 330ms; }
+.slide.is-active .fund-item:nth-child(3) { animation-delay: 400ms; }
+.slide.is-active .fund-item:nth-child(4) { animation-delay: 470ms; }
+.slide.is-active .fund-item:nth-child(5) { animation-delay: 540ms; }
+.slide.is-active .fund-item:nth-child(6) { animation-delay: 610ms; }
+.slide.is-active .fund-item:nth-child(7) { animation-delay: 680ms; }
 
 .fund-item i {
   width: 13px;
