@@ -9,6 +9,8 @@ const prevButton = document.querySelector("#prev-slide");
 const nextButton = document.querySelector("#next-slide");
 const phone = document.querySelector(".phone");
 const metricBars = [...document.querySelectorAll(".bar-stack, .metric-bar, .event-row")];
+const linkPreviewGrid = document.querySelector(".link-preview-grid");
+const linkPreviewCards = [...document.querySelectorAll(".link-preview-card")];
 
 const chartDates = [
   "Jul 27",
@@ -120,6 +122,23 @@ metricBars.forEach((bar) => {
   const eventName = bar.querySelector("span")?.textContent?.trim();
   const eventValue = bar.querySelector("strong")?.textContent?.trim();
   bar.dataset.tooltip = `${eventName}: ${eventValue}`;
+});
+
+linkPreviewCards.forEach((card) => {
+  card.addEventListener("pointerenter", () => {
+    linkPreviewGrid?.classList.add("is-preview-focused");
+    linkPreviewCards.forEach((previewCard) => {
+      previewCard.classList.remove("is-focused");
+    });
+    card.classList.add("is-focused");
+  });
+});
+
+linkPreviewGrid?.addEventListener("pointerleave", () => {
+  linkPreviewGrid.classList.remove("is-preview-focused");
+  linkPreviewCards.forEach((card) => {
+    card.classList.remove("is-focused");
+  });
 });
 
 window.addEventListener("keydown", (event) => {
