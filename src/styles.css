@@ -1106,6 +1106,11 @@ p {
   background: #f7f5f1;
 }
 
+.traction-plan-slide {
+  gap: clamp(18px, 3vh, 28px);
+  padding: clamp(34px, 5vw, 58px);
+}
+
 .finance-heading {
   display: grid;
   gap: 6px;
@@ -1126,6 +1131,153 @@ p {
   color: #142033;
   font-size: clamp(1.05rem, 1.75vw, 1.25rem);
   line-height: 1.2;
+}
+
+.goals-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.goal-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 920px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.goal-card {
+  display: grid;
+  min-height: 138px;
+  align-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(38, 50, 68, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: clamp(16px, 2vw, 22px);
+  box-shadow: 0 14px 34px rgba(24, 20, 16, 0.07);
+}
+
+.goal-card span {
+  color: #8c94a3;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.goal-card strong {
+  color: #263244;
+  font-size: clamp(1.7rem, 2.9vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.goal-card p {
+  color: #50566a;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  line-height: 1.35;
+}
+
+.goal-card {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.slide.is-active .goal-card {
+  animation: tableRowIn 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide.is-active .goal-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.slide.is-active .goal-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.scenario-block {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 920px);
+  gap: 12px;
+}
+
+.scenario-block h3 {
+  color: #263244;
+  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+}
+
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  overflow: hidden;
+  border: 1px solid rgba(38, 50, 68, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 36px rgba(24, 20, 16, 0.06);
+}
+
+.scenario-table th,
+.scenario-table td {
+  border-bottom: 1px solid rgba(38, 50, 68, 0.09);
+  padding: 10px 14px;
+}
+
+.scenario-table thead th {
+  background: rgba(244, 242, 247, 0.76);
+  color: #4c5261;
+  font-size: clamp(0.72rem, 0.9vw, 0.82rem);
+  font-weight: 700;
+}
+
+.scenario-table tbody th {
+  color: #263244;
+  font-size: clamp(0.76rem, 0.95vw, 0.86rem);
+  font-weight: 700;
+  text-align: left;
+}
+
+.scenario-table td {
+  color: #141b28;
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  font-weight: 500;
+  text-align: center;
+}
+
+.scenario-table tr:last-child th,
+.scenario-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.scenario-table tbody tr {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide.is-active .scenario-table tbody tr {
+  animation: tableRowIn 540ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide.is-active .scenario-table tbody tr:nth-child(1) {
+  animation-delay: 260ms;
+}
+
+.slide.is-active .scenario-table tbody tr:nth-child(2) {
+  animation-delay: 330ms;
+}
+
+.slide.is-active .scenario-table tbody tr:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+.slide.is-active .scenario-table tbody tr:nth-child(4) {
+  animation-delay: 470ms;
 }
 
 .finance-table-wrap {
@@ -1471,6 +1623,7 @@ h3 {
   .solution-layout,
   .vision-layout,
   .metrics-grid,
+  .goal-grid,
   .point-grid {
     grid-template-columns: 1fr;
   }
@@ -1504,8 +1657,13 @@ h3 {
     overflow-y: auto;
   }
 
+  .goal-card {
+    min-height: 130px;
+  }
+
   .landscape-table-wrap,
-  .finance-table-wrap {
+  .finance-table-wrap,
+  .scenario-block {
     overflow-x: auto;
   }
 
@@ -1515,6 +1673,10 @@ h3 {
 
   .finance-table {
     min-width: 760px;
+  }
+
+  .scenario-table {
+    min-width: 700px;
   }
 
   .funds-layout {
