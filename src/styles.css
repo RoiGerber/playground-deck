@@ -1383,13 +1383,14 @@ p {
   border-radius: inherit;
   background:
     conic-gradient(
-      #2f80ed 0deg 252deg,
-      #34c759 252deg 288deg,
-      #8b5cf6 288deg 312deg,
-      #ffb020 312deg 330deg,
-      #14b8a6 330deg 348deg,
-      #f97316 348deg 355.2deg,
-      #6b7280 355.2deg 360deg
+      #2f80ed 0deg 216deg,
+      #ec4899 216deg 267.43deg,
+      #34c759 267.43deg 298.29deg,
+      #8b5cf6 298.29deg 318.86deg,
+      #ffb020 318.86deg 334.29deg,
+      #14b8a6 334.29deg 349.71deg,
+      #f97316 349.71deg 355.89deg,
+      #6b7280 355.89deg 360deg
     );
   opacity: 0;
   transform: scale(0.72) rotate(-42deg);
@@ -1512,6 +1513,7 @@ p {
 .slide.is-active .fund-item:nth-child(5) { animation-delay: 540ms; }
 .slide.is-active .fund-item:nth-child(6) { animation-delay: 610ms; }
 .slide.is-active .fund-item:nth-child(7) { animation-delay: 680ms; }
+.slide.is-active .fund-item:nth-child(8) { animation-delay: 750ms; }
 
 .fund-item i {
   width: 13px;
@@ -1537,6 +1539,7 @@ p {
 }
 
 .fund-item.marketing i { background: #2f80ed; }
+.fund-item.salaries i { background: #ec4899; }
 .fund-item.buffer i { background: #34c759; }
 .fund-item.freelance i { background: #ffb020; }
 .fund-item.games i { background: #8b5cf6; }
