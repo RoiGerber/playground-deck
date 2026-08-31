@@ -26,6 +26,11 @@ if (isVcDeck) {
   document.documentElement.dataset.deckVariant = "vc";
 
   document.querySelectorAll("[data-venture-text]").forEach((element) => {
+    if (element.hasAttribute("content")) {
+      element.setAttribute("content", element.dataset.ventureText);
+      return;
+    }
+
     element.textContent = element.dataset.ventureText;
   });
 }

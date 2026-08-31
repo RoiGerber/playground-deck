@@ -1294,23 +1294,52 @@ p {
 }
 
 .vc-goals {
-  width: min(100%, 1060px);
+  width: min(100%, 1110px);
 }
 
 .vc-goals-table {
-  font-size: clamp(0.68rem, 0.9vw, 0.82rem);
+  table-layout: fixed;
 }
 
 .vc-goals-table th,
 .vc-goals-table td {
-  height: 46px;
-  padding: 9px 10px;
+  height: 42px;
+  padding: 8px 9px;
+  vertical-align: middle;
+}
+
+.vc-goals-table thead th {
+  font-size: clamp(0.68rem, 0.85vw, 0.78rem);
+}
+
+.vc-goals-table tbody th,
+.vc-goals-table td {
+  font-size: clamp(0.76rem, 1vw, 0.98rem);
+  line-height: 1.14;
+}
+
+.vc-goals-table th:first-child,
+.vc-goals-table td:first-child {
+  width: 9%;
 }
 
 .vc-goals-table th:nth-child(2),
 .vc-goals-table td:nth-child(2) {
-  width: 210px;
+  width: 24%;
   text-align: center;
+}
+
+.vc-goals-table th:nth-child(3),
+.vc-goals-table td:nth-child(3),
+.vc-goals-table th:nth-child(5),
+.vc-goals-table td:nth-child(5),
+.vc-goals-table th:nth-child(8),
+.vc-goals-table td:nth-child(8) {
+  width: 12%;
+}
+
+.vc-goals-table td:nth-child(8) {
+  white-space: nowrap;
 }
 
 .finance-table-wrap {
