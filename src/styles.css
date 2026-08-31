@@ -1179,6 +1179,19 @@ p {
   line-height: 1.35;
 }
 
+.vc-goals {
+  display: none;
+}
+
+[data-deck-variant="vc"] .default-goals,
+[data-deck-variant="vc"] .traction-plan-slide .scenario-block:not(.vc-goals) {
+  display: none;
+}
+
+[data-deck-variant="vc"] .vc-goals {
+  display: grid;
+}
+
 .goal-card {
   opacity: 0;
   transform: translateY(18px);
@@ -1278,6 +1291,26 @@ p {
 
 .slide.is-active .scenario-table tbody tr:nth-child(4) {
   animation-delay: 470ms;
+}
+
+.vc-goals {
+  width: min(100%, 1060px);
+}
+
+.vc-goals-table {
+  font-size: clamp(0.68rem, 0.9vw, 0.82rem);
+}
+
+.vc-goals-table th,
+.vc-goals-table td {
+  height: 46px;
+  padding: 9px 10px;
+}
+
+.vc-goals-table th:nth-child(2),
+.vc-goals-table td:nth-child(2) {
+  width: 210px;
+  text-align: center;
 }
 
 .finance-table-wrap {
@@ -2123,6 +2156,10 @@ h3 {
 
   .scenario-table {
     min-width: 700px;
+  }
+
+  .vc-goals-table {
+    min-width: 860px;
   }
 
   .funds-layout {
