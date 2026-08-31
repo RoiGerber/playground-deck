@@ -12,6 +12,24 @@ const metricBars = [...document.querySelectorAll(".bar-stack, .metric-bar, .even
 const linkPreviewGrid = document.querySelector(".link-preview-grid");
 const linkPreviewCards = [...document.querySelectorAll(".link-preview-card")];
 
+const vcFlagNames = ["vc", "flag", "variant"];
+const urlParams = new URLSearchParams(window.location.search);
+const pathParts = window.location.pathname.toLowerCase().split("/").filter(Boolean);
+const hashParts = window.location.hash.toLowerCase().replace(/^#/, "").split(/[/?&=]/).filter(Boolean);
+const isVcDeck =
+  pathParts.includes("vc") ||
+  hashParts.includes("vc") ||
+  urlParams.has("vc") ||
+  vcFlagNames.some((name) => urlParams.get(name)?.toLowerCase() === "vc");
+
+if (isVcDeck) {
+  document.documentElement.dataset.deckVariant = "vc";
+
+  document.querySelectorAll("[data-venture-text]").forEach((element) => {
+    element.textContent = element.dataset.ventureText;
+  });
+}
+
 const chartDates = [
   "Jul 27",
   "Jul 28",
