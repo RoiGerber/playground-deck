@@ -7,6 +7,7 @@ const currentSlide = document.querySelector("#current-slide");
 const totalSlides = document.querySelector("#total-slides");
 const prevButton = document.querySelector("#prev-slide");
 const nextButton = document.querySelector("#next-slide");
+const stage = document.querySelector(".deck-stage");
 const phone = document.querySelector(".phone");
 const metricBars = [...document.querySelectorAll(".bar-stack, .metric-bar, .event-row")];
 const linkPreviewGrid = document.querySelector(".link-preview-grid");
@@ -103,6 +104,51 @@ marks.forEach((mark, index) => {
 
 prevButton.addEventListener("click", () => moveSlide(-1));
 nextButton.addEventListener("click", () => moveSlide(1));
+
+const mobileQuery = window.matchMedia("(max-width: 820px) and (pointer: coarse)");
+let swipeStartX = 0;
+let swipeStartY = 0;
+let swipeStartTime = 0;
+let swipeStartedInScrollableRegion = false;
+
+stage?.addEventListener(
+  "touchstart",
+  (event) => {
+    if (!mobileQuery.matches || event.touches.length !== 1) {
+      return;
+    }
+
+    const touch = event.touches[0];
+    const scrollRegion = event.target.closest(".scenario-block, .finance-table-wrap, .landscape-table-wrap");
+    swipeStartX = touch.clientX;
+    swipeStartY = touch.clientY;
+    swipeStartTime = Date.now();
+    swipeStartedInScrollableRegion = Boolean(scrollRegion && scrollRegion.scrollWidth > scrollRegion.clientWidth);
+  },
+  { passive: true },
+);
+
+stage?.addEventListener(
+  "touchend",
+  (event) => {
+    if (!mobileQuery.matches || event.changedTouches.length !== 1) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - swipeStartX;
+    const deltaY = touch.clientY - swipeStartY;
+    const elapsed = Date.now() - swipeStartTime;
+    const isHorizontalSwipe = Math.abs(deltaX) > 54 && Math.abs(deltaX) > Math.abs(deltaY) * 1.35;
+
+    if (swipeStartedInScrollableRegion || !isHorizontalSwipe || elapsed > 700) {
+      return;
+    }
+
+    moveSlide(deltaX < 0 ? 1 : -1);
+  },
+  { passive: true },
+);
 
 if (phone) {
   phone.addEventListener("pointermove", (event) => {
